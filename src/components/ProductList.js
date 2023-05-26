@@ -1,5 +1,5 @@
 import React from "react";
-import '/node_modules/bootstrap/dist/css/bootstrap.min.css'
+
 
 const DummyProducts = [
   {
@@ -37,7 +37,7 @@ const ProductList = () => {
     </div>
   ));
 
-  return <div className="list">{list}</div>;
+  return <div>{list}</div>;
 };
 
 export default ProductList;
