@@ -1,39 +1,35 @@
-import React from "react";
-
+import React from 'react';
 
 const DummyProducts = [
   {
-    title: "Colors",
+    title: 'Colors',
     price: 100,
-    imageUrl:
-      "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
   },
   {
-    title: "Black and white Colors",
+    title: 'Black and white Colors',
     price: 50,
-    imageUrl:
-      "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
   },
   {
-    title: "Yellow and Black Colors",
+    title: 'Yellow and Black Colors',
     price: 70,
-    imageUrl:
-      "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
   },
   {
-    title: "Blue Color",
+    title: 'Blue Color',
     price: 100,
-    imageUrl:
-      "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
   },
 ];
 
-const ProductList = () => {
-  const list = DummyProducts.map((product) => (
-    <div key={product.title}>
+const ProductList = ({ addToCart }) => {
+  const list = DummyProducts.map((product, index) => (
+    <div key={index}>
       <h2>{product.title}</h2>
       <p>Price: ${product.price}</p>
-      <img src={product.imageUrl} alt={'pro-photos'} />
+      <img src={product.imageUrl} alt="pro-photos" />
+      <button onClick={() => addToCart(product)}>Add To Cart</button>
     </div>
   ));
 

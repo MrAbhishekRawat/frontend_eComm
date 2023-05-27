@@ -1,5 +1,5 @@
 import React from "react";
-import CartIcon from "./CartIcon";
+import CartIcon from "../cart/CartIcon";
 
 const Header = (props) => {
   return (
