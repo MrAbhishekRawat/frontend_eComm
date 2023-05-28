@@ -1,0 +1,18 @@
+:root {
+    --cart-icon-size: 50px;
+    --cart-icon-color: #000000;
+    --cart-count-background-color: #967b7b;
+    --cart-count-text-color: #ffffff;
+  }
+
+  .cartIcon {
+    width: var(--cart-icon-size);
+    height: var(--cart-icon-size);
+    color: var(--cart-icon-color);
+  }
+  
+  .cartCount {
+    background-color: var(--cart-count-background-color);
+    color: var(--cart-count-text-color);
+    width: fit-content;
+  }
