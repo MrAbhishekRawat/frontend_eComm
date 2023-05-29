@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Cart = ({ cartElements, removeFromCart }) => {
+const Cart = ( {cartElements, removeFromCart} ) => {
   return (
     <div>
       {cartElements.map((item, index) => (

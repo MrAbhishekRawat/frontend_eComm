@@ -4,6 +4,7 @@ import classes from './CartIcon.module.css';
 import cartIconPic from '../../assets/cartIconPic.png';
 import ProductList from '../ProductList';
 
+
 const CartIcon = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartElements, setCartElements] = useState([]);
@@ -42,7 +43,8 @@ const CartIcon = () => {
         <Cart cartElements={cartElements} removeFromCart={removeFromCart} />
       )}
       <p className={classes.cartCount}>({cartCount})</p>
-      <ProductList addToCart={addToCart} />
+      <ProductList addToCart={addToCart}/>
+       
     </div>
   );
 };
