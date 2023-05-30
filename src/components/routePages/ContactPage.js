@@ -8,7 +8,7 @@ const Contact = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const data = {
+    const contactData = {
       name,
       email,
       phone,
@@ -16,29 +16,28 @@ const Contact = () => {
 
     try {
       const response = await fetch(
-        "https://my-ecomm-demo-app-default-rtdb.firebaseio.com/eCommUser",
+        "https://my-ecomm-demo-app-default-rtdb.firebaseio.com/eCommUser.json",
         {
           method: "POST",
-          body: JSON.stringify(data),
+          body: JSON.stringify(contactData),
           headers: {
             "Content-Type": "application/json",
           },
         }
       );
+
       if (!response.ok) {
-        throw new Error("Something went wrong....Retrying");
+        throw new Error("Failed to store contact data.");
       }
 
-      const responseData = await response.json();
+      console.log("Contact data stored successfully.");
 
-      console.log("Data stored successfully:", responseData);
+      setName("");
+      setEmail("");
+      setPhone("");
     } catch (error) {
-      console.error("Error storing data:", error);
+      console.error("Error storing contact data:", error);
     }
-
-    setName("");
-    setEmail("");
-    setPhone("");
   };
 
   return (
