@@ -3,6 +3,7 @@ import {Link, Routes, Route } from "react-router-dom";
 import CartIcon from "../cart/CartIcon";
 import About from "../routePages/About";
 import Home from "../routePages/Home";
+import ProductDetail from "../product/ProductDetails";
 
 const Header = () => {
   return (
@@ -16,6 +17,7 @@ const Header = () => {
       <Routes>
         <Route path="/about" element={<About />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/ProductDetail" component={ProductDetail} />
       </Routes>
     </div>
   );

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Cart from './Cart';
 import classes from './CartIcon.module.css';
 import cartIconPic from '../../assets/cartIconPic.png';
-import ProductList from '../ProductList';
+import ProductList from '../product/ProductList';
+
 
 
 const CartIcon = () => {
@@ -31,6 +32,8 @@ const CartIcon = () => {
     }
   };
 
+
+
   return (
     <div>
       <img
@@ -44,6 +47,7 @@ const CartIcon = () => {
       )}
       <p className={classes.cartCount}>({cartCount})</p>
       <ProductList addToCart={addToCart}/>
+      
        
     </div>
   );

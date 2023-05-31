@@ -8,18 +8,14 @@ const Contact = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const contactData = {
-      name,
-      email,
-      phone,
-    };
+    const userData = {name,email,phone};
 
     try {
       const response = await fetch(
         "https://my-ecomm-demo-app-default-rtdb.firebaseio.com/eCommUser.json",
         {
           method: "POST",
-          body: JSON.stringify(contactData),
+          body: JSON.stringify(userData),
           headers: {
             "Content-Type": "application/json",
           },
@@ -43,32 +39,15 @@ const Contact = () => {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Name:
-        <input
-          type="text"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
-      </label>
-      <br />
+        Name:<input type="text" value={name} onChange={(event) => setName(event.target.value)} />
+      </label><br />
       <label>
         Email:
-        <input
-          type="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-      </label>
-      <br />
+        <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
+      </label><br />
       <label>
-        Phone:
-        <input
-          type="tel"
-          value={phone}
-          onChange={(event) => setPhone(event.target.value)}
-        />
-      </label>
-      <br />
+        Phone: <input type="tel" value={phone} onChange={(event) => setPhone(event.target.value)} />
+      </label> <br />
       <button type="submit">Submit</button>
     </form>
   );
