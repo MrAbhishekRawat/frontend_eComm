@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div>
       <div>
-        <NavLink to="/contact" activeClassName="active">Contact Us</NavLink>
+        <NavLink excat to="/contact" activeClassName="active">Contact Us</NavLink>
       </div>
       <Contact />
       <h1>ABOUT</h1>

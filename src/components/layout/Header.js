@@ -3,7 +3,8 @@ import {Link, Routes, Route } from "react-router-dom";
 import CartIcon from "../cart/CartIcon";
 import About from "../routePages/About";
 import Home from "../routePages/Home";
-import ProductDetail from "../product/ProductDetails";
+import LoginPage from "../routePages/LoginPage";
+
 
 const Header = () => {
   return (
@@ -12,12 +13,13 @@ const Header = () => {
         <Link to="/home">HOME</Link>
         <Link to="/store">STORE</Link>
         <Link to="/about">ABOUT</Link>
+        <Link to="/login">LOGIN</Link>
       </div>
       <CartIcon />
       <Routes>
-        <Route path="/about" element={<About />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/ProductDetail" component={ProductDetail} />
+        <Route exact path="/home" element={<Home />} />
+        <Route exact path="/about" element={<About />} />
+        <Route exact path="/login" element={<LoginPage />} />
       </Routes>
     </div>
   );
