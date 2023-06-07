@@ -4,7 +4,11 @@ import Layout from "./components/layout/Layout";
 import AuthContext from "./components/store/authContext";
 import LoginPage from "./components/routePages/LoginPage";
 import Header from "./components/layout/Header";
-import ProductList from "./components/product/ProductList";
+import About from "./components/routePages/About";
+import Home from "./components/routePages/Home"
+import CartIcon from "./components/cart/CartIcon";
+import ContactPage from "./components/routePages/ContactPage"
+import ProductDetail from "./components/product/ProductDetails";
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -18,11 +22,15 @@ function App() {
 
   return (
     <Layout>
+    <Header/>
       <Routes>
-        <Route path="/" element={!authCtx.isLoggedIn ? <LoginPage /> : null} />
-        <Route path="/header" element={authCtx.isLoggedIn ? <Header /> : null} />
-        <Route path="/header" element={authCtx.isLoggedIn ? <ProductList /> : null} />
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/productDetails" element={<ProductDetail/>}/>
+        {authCtx.isLoggedIn && <Route path="/product" element={<CartIcon/>} />}
         <Route path="*" element={authCtx.isLoggedIn ? null : <Navigate to="/" replace />} />
+        <Route path="/contact" element={<ContactPage/>}/>
       </Routes>
     </Layout>
   );

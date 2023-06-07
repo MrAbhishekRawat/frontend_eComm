@@ -1,35 +1,34 @@
-import { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import classes from "./MainNavigation.module.css"
 
-import AuthContext from '../store/authContext';
+import AuthContext from "../store/authContext";
 
 const MainNavigation = () => {
-  const navigate= useNavigate()
+  const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
 
   const isLoggedIn = authCtx.isLoggedIn;
 
-  const logoutHandler=()=>{
+  const logoutHandler = () => {
     authCtx.logout();
-    navigate("/")
-  }
+    navigate("/");
+  };
 
   return (
-    <header >
-      <Link to='/'>
-        <div>Khareedo</div>
+    <header className={classes.mainnav}>
+      <Link to="/product">
+        <h2>Khareedo</h2>
       </Link>
-      <nav>
+      <nav className={classes.mainnav}>
         <ul>
           {!isLoggedIn && (
-            <li>
-              <Link to='/'>Login</Link>
-            </li>
+            <Link to="/" className={classes.login}>
+              Login
+            </Link>
           )}
           {isLoggedIn && (
-            <li>
-              <button onClick={logoutHandler}>Logout</button>
-            </li>
+            <button onClick={logoutHandler}>Logout</button>
           )}
         </ul>
       </nav>

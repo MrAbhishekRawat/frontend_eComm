@@ -1,0 +1,26 @@
+.mainnav {
+    height: 5rem;
+    width: 100%;
+    background-color: #7b6c83;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .mainnav h2 {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .mainnav li {
+    display:inline-block;
+    margin-right: 10px;
+  }
+  
+  .mainnav .login {
+    float:inline-start;
+  }
+  
+  .mainnav .logout-button {
+    float: right;
+  }
+  
