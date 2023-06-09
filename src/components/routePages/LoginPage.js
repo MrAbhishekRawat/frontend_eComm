@@ -6,9 +6,9 @@ import classes from "./LoginPage.module.css";
 const LoginPage = () => {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
-  const navigate = useNavigate();
 
   const authCtx = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -54,10 +54,18 @@ const LoginPage = () => {
 
       setIsLoading(false);
       if (response.ok) {
-        const data = await response.json();
-        authCtx.login(data.idToken);
-        navigate("/product");
-      } else {
+        if(isLogin){
+          const data = await response.json();
+          const modifiedEmail = enteredEmail.replace(/[@.]/g, "-");
+          authCtx.login({
+            token: data.idToken,
+            userEmail: modifiedEmail,
+          });
+          navigate("/product");
+        }else{
+          setIsLogin(true)
+        }
+            } else {
         const errorData = await response.json();
         let errorMessage = "Authentication failed!";
         if (errorData && errorData.error && errorData.error.message) {
@@ -68,6 +76,7 @@ const LoginPage = () => {
     } catch (err) {
       alert(err.message);
     }
+
   };
 
   return (
@@ -86,7 +95,10 @@ const LoginPage = () => {
             required
             ref={passwordInputRef}
           />
-          <span onClick={() => setShowPassword((prev) => !prev)}>
+          <span
+            className={classes.show}
+            onClick={() => setShowPassword((prev) => !prev)}
+          >
             {showPassword ? "Hide" : "Show"}
           </span>
         </div>

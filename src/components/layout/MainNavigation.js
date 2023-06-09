@@ -17,13 +17,13 @@ const MainNavigation = () => {
 
   return (
     <header className={classes.mainnav}>
-      <Link to="/product">
-        <h2>Khareedo</h2>
+      <Link to="/product" className={classes.heading}>
+        <h2>KhArEeDo</h2>
       </Link>
       <nav className={classes.mainnav}>
         <ul>
           {!isLoggedIn && (
-            <Link to="/" className={classes.login}>
+            <Link to="/" className= {classes.link}>
               Login
             </Link>
           )}
